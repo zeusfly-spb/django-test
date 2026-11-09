@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
-from polls.views import CurrentUserView, LogoutView
+from polls.views import CurrentUserView, LogoutView, home
 
 from rest_framework_simplejwt.views import (
     TokenObtainPairView,
@@ -26,6 +26,7 @@ from rest_framework_simplejwt.views import (
 
 
 urlpatterns = [
+    path("", home, name="home"),
     path("polls/", include("polls.urls")),
     path('admin/', admin.site.urls),
         # API Authentication
