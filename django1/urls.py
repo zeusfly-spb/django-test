@@ -23,10 +23,15 @@ from rest_framework_simplejwt.views import (
     TokenRefreshView,
 )
 
+from polls import views
+app_name = "polls"  
+
+
 
 
 urlpatterns = [
-    path("", home, name="home"),
+    path("", views.index, name="index"),
+    path("home/", views.home, name="home"),
     path("polls/", include("polls.urls")),
     path('admin/', admin.site.urls),
         # API Authentication
