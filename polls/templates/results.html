@@ -1,0 +1,9 @@
+<h1>{{ question.question_text }}</h1>
+<ul>
+  {% for choice in question.choices.all %}
+    <li>
+      {{ choice.choice_text }} — {{ choice.votes }} голос(а/ов)
+    </li>
+  {% endfor %}
+</ul>
+<a href="{% url 'polls:index' %}">Вернуться к списку опросов</a>
